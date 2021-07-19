@@ -9,12 +9,13 @@ class Player
   end
 
   def reduce_life
-    @lives -= 1
+    if @lives > 0
+      @lives -= 1
+    end
   end
 
-  def is_alive
-    byebug
-    return @lives != 0
+  def alive?
+    @lives != 0
   end
 
   def current_stat
