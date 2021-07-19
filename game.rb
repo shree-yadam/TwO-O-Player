@@ -20,7 +20,7 @@ class Game
 
   def play_game
     # Set initial player as player 1
-    @current_player = 0
+    reset_game
     # loop over turns until game status doesn't change to FINISHED
     until @game_status == FINISHED
       game_turn
@@ -97,6 +97,17 @@ class Game
   #returns string containing game score for both players
   def game_score
     "#{@players[0].pet_name}: #{@players[0].current_stat} vs #{@players[1].pet_name}: #{@players[1].current_stat}"
+  end
+
+  def reset_game
+    @players = []
+    #puts "Player 1 enter your name: "
+    @players << Player.new("Player 1", "P1")
+    #puts "Player 2 enter your name: "
+    @players << Player.new("Player 2", "P2")
+    @current_player = 0
+    @winner = nil
+    @game_status = PLAYING
   end
 
 end
