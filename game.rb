@@ -33,6 +33,7 @@ class Game
       end
     end
     # until loop exit as game finshed
+    switch_player
     @winner = @players[@current_player]
     puts win_message
     puts "----- GAME OVER -----"
